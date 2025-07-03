@@ -442,6 +442,7 @@ SDL_AppResult SDL_AppEvent(void* appstate, SDL_Event* event)
 
 		if (event->key.mod == SDL_KMOD_LALT && keyCode == SDLK_RETURN) {
 			SDL_SetWindowFullscreen(window, !(SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN));
+			SDL_SetWindowResizable(window, (SDL_GetWindowFlags(window) & SDL_WINDOW_FULLSCREEN));
 		}
 		else {
 			if (InputManager()) {
@@ -662,7 +663,7 @@ MxResult IsleApp::SetupWindow()
 	SDL_SetNumberProperty(props, SDL_PROP_WINDOW_CREATE_HEIGHT_NUMBER, g_targetHeight);
 	SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_FULLSCREEN_BOOLEAN, m_fullScreen);
 #ifndef __EMSCRIPTEN__
-	SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN, true);
+	SDL_SetBooleanProperty(props, SDL_PROP_WINDOW_CREATE_RESIZABLE_BOOLEAN, !m_fullScreen);
 #endif
 	SDL_SetStringProperty(props, SDL_PROP_WINDOW_CREATE_TITLE_STRING, WINDOW_TITLE);
 #if defined(MINIWIN) && !defined(__3DS__)
