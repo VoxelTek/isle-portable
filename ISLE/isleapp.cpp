@@ -58,11 +58,9 @@
 #include "3ds/config.h"
 #endif
 
-
 #ifdef PSP
 #include <pspfpu.h>
 #endif
-
 
 DECOMP_SIZE_ASSERT(IsleApp, 0x8c)
 
