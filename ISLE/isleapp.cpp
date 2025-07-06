@@ -132,7 +132,7 @@ IsleApp::IsleApp()
 	m_windowActive = TRUE;
 
 #ifdef PSP
-    pspFpuSetEnable(0);
+	pspFpuSetEnable(0);
 #endif
 
 #ifdef COMPAT_MODE
