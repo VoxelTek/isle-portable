@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>About Configure LEGO© Island</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>lego1.png</normaloff>lego1.png</iconset>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
    <item>
     <widget class="QLabel" name="houseIcon">
