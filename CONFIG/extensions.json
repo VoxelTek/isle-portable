@@ -1,0 +1,15 @@
+{
+  "textureloader": {
+    "name": "Texture Loader",
+    "key": "texture loader",
+    "options": {
+      "texture_path": {
+        "name": "Texture Path",
+        "ini_key": "texture path",
+        "type": "string",
+        "config_type": "directory",
+        "default": "/textures/"
+      }
+    }
+  }
+}

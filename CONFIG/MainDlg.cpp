@@ -7,6 +7,7 @@
 #endif
 
 #include "AboutDlg.h"
+#include "ExtDlg.h"
 #include "config.h"
 #include "res/resource.h"
 
@@ -72,6 +73,8 @@ CMainDialog::CMainDialog(QWidget* pParent) : QDialog(pParent)
 
 	connect(m_ui->maxLoDSlider, &QSlider::valueChanged, this, &CMainDialog::MaxLoDChanged);
 	connect(m_ui->maxActorsSlider, &QSlider::valueChanged, this, &CMainDialog::MaxActorsChanged);
+
+	connect(m_ui->extensionsButton, &QPushButton::clicked, this, &CMainDialog::ExtensionsPopup);
 
 	layout()->setSizeConstraint(QLayout::SetFixedSize);
 }
@@ -383,4 +386,9 @@ void CMainDialog::MaxActorsChanged(int value)
 {
 	currentConfigApp->m_max_actors = value;
 	m_modified = true;
+}
+
+void CMainDialog::ExtensionsPopup() {
+	CExtDialog ext_dialog;
+	ext_dialog.exec();
 }

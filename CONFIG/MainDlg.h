@@ -53,6 +53,7 @@ private slots:
 	void SavePathEdited();
 	void MaxLoDChanged(int value);
 	void MaxActorsChanged(int value);
+	void ExtensionsPopup();
 };
 
 // SYNTHETIC: CONFIG 0x00403de0
