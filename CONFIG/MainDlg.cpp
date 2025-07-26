@@ -13,7 +13,11 @@
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QProcess>
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <cmath>
 #include <mxdirectx/legodxinfo.h>
 #include <ui_maindialog.h>

@@ -51,6 +51,7 @@ cmake_dependent_option(ISLE_MINIWIN "Use miniwin" ON "NOT ISLE_USE_DX5" OFF)
 cmake_dependent_option(ISLE_EXTENSIONS "Use extensions" ON "NOT ISLE_USE_DX5" OFF)
 cmake_dependent_option(ISLE_BUILD_CONFIG "Build CONFIG.EXE application" ON "MSVC OR ISLE_MINIWIN;NOT NINTENDO_3DS;NOT WINDOWS_STORE" OFF)
 cmake_dependent_option(ISLE_COMPILE_SHADERS "Compile shaders" ON "SDL_SHADERCROSS_BIN;TARGET Python3::Interpreter" OFF)
+cmake_dependent_option(ISLE_USE_SDL2 "Use SDL2 instead of SDL3" OFF "NOT NXDK" ON)
 option(CMAKE_POSITION_INDEPENDENT_CODE "Build with -fPIC" ON)
 option(ENABLE_CLANG_TIDY "Enable clang-tidy")
 option(DOWNLOAD_DEPENDENCIES "Download dependencies" ON)
@@ -65,29 +66,41 @@ message(STATUS "Internal miniwin:       ${ISLE_MINIWIN}")
 message(STATUS "Isle extensions:        ${ISLE_EXTENSIONS}")
 message(STATUS "Isle debugging:         ${ISLE_DEBUG}")
 message(STATUS "Compile shaders:        ${ISLE_COMPILE_SHADERS}")
+message(STATUS "SDL2:                   ${ISLE_USE_SDL2}")
 
 add_library(Isle::iniparser INTERFACE IMPORTED)
 
 if (DOWNLOAD_DEPENDENCIES)
   # FetchContent downloads and configures dependencies
-  message(STATUS "Fetching SDL3 and iniparser. This might take a while...")
   include(FetchContent)
-  if (WINDOWS_STORE)
+  if (ISLE_USE_SDL2)
+    message(STATUS "Fetching SDL2 and iniparser. This might take a while...")
     FetchContent_Declare(
-      SDL3
-      GIT_REPOSITORY "https://github.com/Helloyunho/SDL3-uwp.git"
-      GIT_TAG "main"
-      EXCLUDE_FROM_ALL
-    )
-  else()
-    FetchContent_Declare(
-        SDL3
+        SDL2
         GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
-        GIT_TAG "main"
+        GIT_TAG "SDL2"
         EXCLUDE_FROM_ALL
     )
+    FetchContent_MakeAvailable(SDL2)
+  else()
+    message(STATUS "Fetching SDL3 and iniparser. This might take a while...")
+    if (WINDOWS_STORE)
+      FetchContent_Declare(
+        SDL3
+        GIT_REPOSITORY "https://github.com/Helloyunho/SDL3-uwp.git"
+        GIT_TAG "main"
+        EXCLUDE_FROM_ALL
+      )
+    else()
+      FetchContent_Declare(
+          SDL3
+          GIT_REPOSITORY "https://github.com/libsdl-org/SDL.git"
+          GIT_TAG "main"
+          EXCLUDE_FROM_ALL
+      )
+    endif()
+    FetchContent_MakeAvailable(SDL3)
   endif()
-  FetchContent_MakeAvailable(SDL3)
 
   FetchContent_Declare(
     iniparser
@@ -105,7 +118,12 @@ else()
   # find_package looks for already-installed system packages.
   # Configure with `-DCMAKE_PREFIX_PATH="/path/to/package1;/path/to/package2"`
   # to add search paths.
-  find_package(SDL3 CONFIG REQUIRED)
+  if (ISLE_USE_SDL2)
+    find_package(SDL2 CONFIG REQUIRED)
+    include_directories(${SDL2_INCLUDE_DIRS})
+  else()
+    find_package(SDL3 CONFIG REQUIRED)
+  endif()
 
   find_package(iniparser REQUIRED CONFIG COMPONENTS shared)
   target_link_libraries(Isle::iniparser INTERFACE iniparser-shared)
@@ -126,6 +144,10 @@ endif()
 if (ISLE_UBSAN)
   add_compile_options(-fsanitize=undefined -fno-sanitize-recover=undefined)
   add_link_options(-fsanitize=undefined)
+endif()
+
+if (ISLE_USE_SDL2)
+  add_definitions("-DISLE_SDL2")
 endif()
 
 add_subdirectory(miniwin EXCLUDE_FROM_ALL)
@@ -178,8 +200,13 @@ target_include_directories(lego1 PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/L
 target_include_directories(lego1 PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/LEGO1/lego/sources>")
 target_include_directories(lego1 PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/LEGO1/lego/legoomni/include>")
 target_include_directories(lego1 PUBLIC "$<BUILD_INTERFACE:${CMAKE_SOURCE_DIR}/LEGO1/lego/legoomni/include/actions>")
-target_link_libraries(lego1 PRIVATE SDL3::SDL3)
-target_link_libraries(lego1 PUBLIC SDL3::Headers)
+if (ISLE_USE_SDL2)
+  target_link_libraries(lego1 PRIVATE SDL2::SDL2)
+  target_include_directories(lego1 PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/sdl2)
+else()
+  target_link_libraries(lego1 PRIVATE SDL3::SDL3)
+  target_link_libraries(lego1 PUBLIC SDL3::Headers)
+endif()
 target_link_libraries(lego1 PRIVATE $<$<BOOL:${ISLE_USE_DX5}>:DirectX5::DirectX5>)
 # Allow unconditional include of miniwin/miniwind3d.h
 target_link_libraries(lego1 PRIVATE miniwin-headers)
@@ -520,7 +547,12 @@ if (ISLE_BUILD_APP)
   target_link_libraries(isle PRIVATE $<$<BOOL:${ISLE_USE_DX5}>:DirectX5::DirectX5>)
 
   # Link SDL and iniparser
-  target_link_libraries(isle PRIVATE SDL3::SDL3 Isle::iniparser)
+  if (ISLE_USE_SDL2)
+    target_link_libraries(isle PRIVATE SDL2::SDL2 Isle::iniparser)
+    target_include_directories(isle PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/sdl2)
+  else()
+    target_link_libraries(isle PRIVATE SDL3::SDL3 Isle::iniparser)
+  endif()
 
   # Allow unconditional include of miniwin/miniwindevice.h
   target_link_libraries(isle PRIVATE miniwin-headers)
@@ -577,6 +609,13 @@ if (ISLE_BUILD_APP)
       ISLE/ios/config.cpp
     )
   endif()
+  #[[
+  if (ISLE_USE_SDL2)
+    target_sources(isle PRIVATE
+      sdl2/SDL.cpp
+    )
+  endif()
+  ]]
   if(Python3_FOUND)
     if(NOT DEFINED PYTHON_PIL_AVAILABLE)
       execute_process(
@@ -638,7 +677,12 @@ if (ISLE_BUILD_CONFIG)
     target_link_libraries(isle-config PRIVATE DirectX5::DirectX5)
   endif()
   target_compile_definitions(isle-config PRIVATE DIRECT3D_VERSION=0x500)
-  target_link_libraries(isle-config PRIVATE SDL3::SDL3 Isle::iniparser)
+  if (ISLE_USE_SDL2)
+    target_link_libraries(isle-config PRIVATE SDL2::SDL2 Isle::iniparser)
+    target_include_directories(isle-config PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/sdl2)
+  else()
+    target_link_libraries(isle-config PRIVATE SDL3::SDL3 Isle::iniparser)
+  endif()
   if (NOT ISLE_MINIWIN)
     target_link_libraries(isle-config PRIVATE ddraw dxguid)
   endif()
@@ -706,7 +750,7 @@ if (EXISTS "${CLANGFORMAT_BIN}")
 endif()
 
 set(install_extra_targets)
-if(DOWNLOAD_DEPENDENCIES)
+if(DOWNLOAD_DEPENDENCIES AND NOT ISLE_USE_SDL2)
   get_property(sdl3_type TARGET SDL3::SDL3 PROPERTY TYPE)
   if(sdl3_type STREQUAL "SHARED_LIBRARY")
     list(APPEND install_extra_targets "SDL3-shared")

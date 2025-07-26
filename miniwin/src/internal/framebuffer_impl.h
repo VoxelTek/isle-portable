@@ -1,6 +1,10 @@
 #pragma once
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <ddsurface_impl.h>
 #include <miniwin/ddraw.h>
 

@@ -4,7 +4,11 @@
 #include "d3drmrenderer.h"
 #include "miniwin/d3drm.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <vector>
 
 struct DeferredDrawCommand {

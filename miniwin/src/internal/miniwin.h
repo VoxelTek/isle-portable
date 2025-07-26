@@ -1,6 +1,10 @@
 #pragma once
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 
 #define LOG_CATEGORY_MINIWIN (SDL_LOG_CATEGORY_CUSTOM)
 

@@ -5,7 +5,11 @@
 #include "ddraw_impl.h"
 
 #include <GLES3/gl3.h>
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <vector>
 
 DEFINE_GUID(OpenGLES3_GUID, 0x682656F3, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04);

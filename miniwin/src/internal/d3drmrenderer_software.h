@@ -4,7 +4,11 @@
 #include "d3drmtexture_impl.h"
 #include "ddraw_impl.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <cstddef>
 #include <vector>
 

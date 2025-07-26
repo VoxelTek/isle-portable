@@ -6,7 +6,11 @@
 // | This file is auto-generated, do not edit it. |
 // +==============================================+
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 
 // DX only makes sense on Windows platforms
 #if defined(SDL_PLATFORM_WINDOWS)

@@ -43,8 +43,12 @@
 #include <vec.h>
 
 #define SDL_MAIN_USE_CALLBACKS
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
 #include <SDL3/SDL_main.h>
+#endif
 #include <errno.h>
 #include <iniparser.h>
 #include <stdlib.h>

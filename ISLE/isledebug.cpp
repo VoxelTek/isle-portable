@@ -11,9 +11,15 @@
 #include "misc.h"
 #include "mxticklemanager.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#include <backends/imgui_impl_sdl2.h>
+#include <backends/imgui_impl_sdlrenderer2.h>
+#else
 #include <SDL3/SDL.h>
 #include <backends/imgui_impl_sdl3.h>
 #include <backends/imgui_impl_sdlrenderer3.h>
+#endif
 #include <imgui.h>
 
 #ifdef ISLE_VALGRIND

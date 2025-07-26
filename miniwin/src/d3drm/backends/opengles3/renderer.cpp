@@ -3,7 +3,11 @@
 
 #include <GLES2/gl2ext.h>
 #include <GLES3/gl3.h>
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 #include <algorithm>
 #include <string>
 

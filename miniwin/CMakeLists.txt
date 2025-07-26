@@ -28,7 +28,12 @@ target_compile_definitions(miniwin PRIVATE
 )
 
 list(APPEND GRAPHICS_BACKENDS USE_SOFTWARE_RENDER)
-list(APPEND GRAPHICS_BACKENDS USE_SDL_GPU)
+
+if (ISLE_USE_SDL2)
+  target_include_directories(miniwin PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../sdl2)
+else()
+  list(APPEND GRAPHICS_BACKENDS USE_SDL_GPU)
+endif()
 
 if(NOT WINDOWS_STORE)
   find_package(OpenGL)
@@ -111,7 +116,11 @@ target_include_directories(miniwin
 )
 target_link_libraries(miniwin PUBLIC miniwin-headers)
 
-target_link_libraries(miniwin PRIVATE SDL3::SDL3)
+if (ISLE_USE_SDL2)
+  target_link_libraries(miniwin PRIVATE SDL2::SDL2)
+else()
+  target_link_libraries(miniwin PRIVATE SDL3::SDL3)
+endif()
 
 target_compile_definitions(miniwin PUBLIC ${GRAPHICS_BACKENDS})
 

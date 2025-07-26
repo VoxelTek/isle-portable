@@ -7,7 +7,11 @@
 
 #include <QDialog>
 #include <QFileDialog>
+#ifdef ISLE_SDL2
+#include "sdl_compat.h"
+#else
 #include <SDL3/SDL.h>
+#endif
 
 namespace Ui
 {
