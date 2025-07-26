@@ -4,7 +4,11 @@
 #include "lego1_export.h"
 #include "legoentitypresenter.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_iostream.h"
+#else
 #include <SDL3/SDL_iostream.h>
+#endif
 
 class LegoWorld;
 struct ModelDbPart;

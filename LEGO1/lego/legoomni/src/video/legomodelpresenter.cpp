@@ -19,7 +19,11 @@
 #include "realtime/realtime.h"
 #include "roi/legoroi.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_stdinc.h>
+#endif
 
 DECOMP_SIZE_ASSERT(LegoModelPresenter, 0x6c)
 

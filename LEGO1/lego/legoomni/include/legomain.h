@@ -7,8 +7,13 @@
 #include "mxdsaction.h"
 #include "mxomni.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_events.h"
+#include "sdl_compat_timer.h"
+#else
 #include <SDL3/SDL_events.h>
 #include <SDL3/SDL_timer.h>
+#endif
 
 class Isle;
 class LegoAnimationManager;

@@ -5,7 +5,11 @@
 #include "lego1_export.h"
 #include "mxcore.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_stdinc.h>
+#endif
 #ifdef MINIWIN
 #include "miniwin/ddraw.h"
 #else

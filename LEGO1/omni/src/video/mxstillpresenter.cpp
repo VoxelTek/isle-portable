@@ -12,7 +12,11 @@
 #include "mxutilities.h"
 #include "mxvideomanager.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_stdinc.h>
+#endif
 
 DECOMP_SIZE_ASSERT(MxStillPresenter, 0x6c);
 

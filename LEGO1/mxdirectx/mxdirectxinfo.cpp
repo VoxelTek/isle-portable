@@ -2,7 +2,11 @@
 
 #include "omni/include/mxvideoparam.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_log.h"
+#else
 #include <SDL3/SDL_log.h>
+#endif
 #include <assert.h>
 #include <miniwin/miniwind3d.h>
 #include <stdio.h> // for vsprintf

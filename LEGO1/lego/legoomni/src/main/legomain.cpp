@@ -32,8 +32,13 @@
 #include "scripts.h"
 #include "viewmanager/viewmanager.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_log.h"
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_log.h>
 #include <SDL3/SDL_stdinc.h>
+#endif
 
 DECOMP_SIZE_ASSERT(LegoOmni, 0x140)
 DECOMP_SIZE_ASSERT(LegoOmni::WorldContainer, 0x1c)

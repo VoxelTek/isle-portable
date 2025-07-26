@@ -2,7 +2,11 @@
 
 #include "decomp.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_log.h"
+#else
 #include <SDL3/SDL_log.h>
+#endif
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(MxDirectDraw, 0x880)

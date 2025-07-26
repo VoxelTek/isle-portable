@@ -3,9 +3,15 @@
 #include "decomp.h"
 #include "mxomni.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_log.h"
+#include "sdl_compat_platform_defines.h"
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_log.h>
 #include <SDL3/SDL_platform_defines.h>
 #include <SDL3/SDL_stdinc.h>
+#endif
 #include <stdlib.h>
 #include <string.h>
 

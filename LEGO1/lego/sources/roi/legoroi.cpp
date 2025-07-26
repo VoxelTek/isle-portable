@@ -9,7 +9,11 @@
 #include "shape/legobox.h"
 #include "shape/legosphere.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_stdinc.h>
+#endif
 #include <string.h>
 #include <vec.h>
 

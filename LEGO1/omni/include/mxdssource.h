@@ -4,7 +4,11 @@
 #include "mxcore.h"
 #include "mxdsbuffer.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_iostream.h"
+#else
 #include <SDL3/SDL_iostream.h>
+#endif
 
 // VTABLE: LEGO1 0x100dc8c8
 // VTABLE: BETA10 0x101c2450

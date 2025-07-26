@@ -3,7 +3,11 @@
 
 #include "legotypes.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_surface.h"
+#else
 #include <SDL3/SDL_surface.h>
+#endif
 
 class LegoStorage;
 

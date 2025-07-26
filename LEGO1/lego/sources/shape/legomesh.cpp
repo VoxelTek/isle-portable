@@ -2,7 +2,11 @@
 
 #include "misc/legostorage.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_stdinc.h>
+#endif
 
 DECOMP_SIZE_ASSERT(LegoMeshUnkComponent, 0x1c)
 DECOMP_SIZE_ASSERT(LegoMesh, 0x24)

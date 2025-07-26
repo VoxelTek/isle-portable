@@ -17,8 +17,13 @@
 #include "mxvariabletable.h"
 #include "mxvideomanager.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_filesystem.h"
+#include "sdl_compat_log.h"
+#else
 #include <SDL3/SDL_filesystem.h>
 #include <SDL3/SDL_log.h>
+#endif
 
 // GLOBAL: LEGO1 0x101015b8
 MxString g_hdPath = "";

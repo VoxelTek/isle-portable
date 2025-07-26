@@ -29,7 +29,11 @@
 #include "regbook_actions.h"
 #include "scripts.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_log.h"
+#else
 #include <SDL3/SDL_log.h>
+#endif
 
 DECOMP_SIZE_ASSERT(RegistrationBook, 0x2d0)
 

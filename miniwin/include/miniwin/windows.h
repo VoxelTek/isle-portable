@@ -1,6 +1,10 @@
 #pragma once
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_video.h"
+#else
 #include <SDL3/SDL_video.h>
+#endif
 #include <limits.h>
 #include <stdint.h>
 #include <string.h>

@@ -2,7 +2,11 @@
 
 #include "decomp.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_timer.h"
+#else
 #include <SDL3/SDL_timer.h>
+#endif
 
 DECOMP_SIZE_ASSERT(MxThread, 0x1c)
 

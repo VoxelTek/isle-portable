@@ -6,8 +6,14 @@
 #include "misc.h"
 #include "mxomni.h"
 
+
+#ifdef ISLE_SDL2
+#include "sdl_compat_filesystem.h"
+#include "sdl_compat_log.h"
+#else
 #include <SDL3/SDL_filesystem.h>
 #include <SDL3/SDL_log.h>
+#endif
 #include <emscripten.h>
 #include <emscripten/wasmfs.h>
 

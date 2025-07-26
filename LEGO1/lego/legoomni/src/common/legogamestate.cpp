@@ -59,8 +59,14 @@
 #include "sndanim_actions.h"
 #include "towtrack.h"
 
+#ifdef ISLE_SDL2
+#include "sdl_compat_filesystem.h"
+#include "sdl_compat_stdinc.h"
+#else
 #include <SDL3/SDL_filesystem.h>
 #include <SDL3/SDL_stdinc.h>
+#endif
+
 #include <assert.h>
 #include <stdio.h>
 
