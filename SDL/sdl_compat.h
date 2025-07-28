@@ -49,16 +49,19 @@ typedef struct SDL_PixelFormatDetails
     Uint8 Ashift;
 } SDL_PixelFormatDetails;
 
-
 //Functions that don't exist in SDL2
 SDL_Palette * SDL_CreatePalette(int ncolors);
 void SDL_DestroyPalette(SDL_Palette *palette);
 SDL_Surface * SDL_CreateSurface(int width, int height, SDL_PixelFormat format);
 void SDL_DestroySurface(SDL_Surface *surface);
 
+#define SDL_PixelFormat SDL_PixelFormatEnum
+SDL_PixelFormat SDL_GetPixelFormatForMasks(int bpp, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask);
+
 #define SDL_GetPixelFormatDetails SDL_AllocFormat
 #define SDL_GetPixelFormatForMasks SDL_MasksToPixelFormatEnum
 #define SDL_GetPixelFormatDetails(x) x
+#define SDL_SCALEMODE_NEAREST SDL_ScaleModeNearest
 
 
 #ifdef __cplusplus

@@ -9,6 +9,11 @@
 extern "C" {
 #endif
 
+#define SDL_BlitSurfaceScaled SDL_BlitScaled
+#define SDL_FillSurfaceRect SDL_FillRect
+#define SDL_SetSurfaceColorKey SDL_SetColorKey
+#define SDL_ConvertSurface SDL_ConvertSurfaceFormat
+
 #ifdef __cplusplus
 }
 #endif
