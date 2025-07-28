@@ -1,13 +1,5 @@
+#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-
-void SDL_LogTrace(int category, SDL_PRINTF_FORMAT_STRING const char *fmt, ...)
-{
-    va_list ap;
-
-    va_start(ap, fmt);
-    SDL_LogMessageV(category, SDL_LOG_PRIORITY_TRACE, fmt, ap);
-    va_end(ap);
-}
 
 SDL_Palette * SDL_CreatePalette(int ncolors) {
 	SDL_Palette *palette;
@@ -140,3 +132,4 @@ void SDL_DestroySurface(SDL_Surface *surface)
         SDL_free(surface);
     }
 }
+#endif

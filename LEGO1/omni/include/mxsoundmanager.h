@@ -6,11 +6,7 @@
 #include "mxaudiomanager.h"
 #include "mxminiaudio.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_audio.h"
-#else
-#include <SDL3/SDL_audio.h>
-#endif
 
 // VTABLE: LEGO1 0x100dc128
 // VTABLE: BETA10 0x101c1ce8

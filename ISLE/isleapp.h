@@ -9,11 +9,7 @@
 #include "mxtypes.h"
 #include "mxvideoparam.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #ifdef MINIWIN
 #include "miniwin/windows.h"
 #else

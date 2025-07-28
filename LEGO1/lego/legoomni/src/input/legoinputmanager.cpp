@@ -11,11 +11,7 @@
 #include "mxdebug.h"
 #include "roi/legoroi.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_log.h"
-#else
-#include <SDL3/SDL_log.h>
-#endif
 
 DECOMP_SIZE_ASSERT(LegoInputManager, 0x338)
 DECOMP_SIZE_ASSERT(LegoNotifyList, 0x18)

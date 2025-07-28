@@ -7,11 +7,7 @@
 #include "mathutils.h"
 #include "miniwin.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <cassert>
 #include <float.h>
 #include <functional>

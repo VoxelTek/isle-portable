@@ -1,10 +1,6 @@
 #include "legodxinfo.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_cpuinfo.h"
-#else
-#include <SDL3/SDL_cpuinfo.h>
-#endif
 #include <assert.h>
 #include <stdio.h> // for vsprintf
 

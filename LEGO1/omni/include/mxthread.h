@@ -5,11 +5,7 @@
 #include "mxsemaphore.h"
 #include "mxtypes.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_thread.h"
-#else
-#include <SDL3/SDL_thread.h>
-#endif
 
 class MxCore;
 

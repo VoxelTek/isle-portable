@@ -8,11 +8,7 @@
 #include "mxutilities.h"
 #include "mxvideomanager.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_log.h"
-#else
-#include <SDL3/SDL_log.h>
-#endif
 #include <assert.h>
 #ifdef MINIWIN
 #include "miniwin/windows.h"

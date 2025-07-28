@@ -1,6 +1,10 @@
 #pragma once
 
+#ifdef ISLE_SDL2
+
 #include <SDL2/SDL_video.h>
+#include "sdl_compat_stdinc.h"
+#include "sdl_compat_surface.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -19,6 +23,15 @@ const SDL_DisplayMode * SDL2_SDL_GetCurrentDisplayMode(SDL_DisplayID displayID);
 SDL_DisplayID SDL_GetPrimaryDisplay(void);
 SDL_DisplayMode ** SDL_GetFullscreenDisplayModes(SDL_DisplayID displayID, int *count);
 
+#define SDL_SetWindowBordered SDL2_SDL_SetWindowBordered
+#define SDL_SetWindowResizable SDL2_SDL_SetWindowResizable
+#define SDL_GetWindowSize SDL2_SDL_GetWindowSize
+#define SDL_GetCurrentDisplayMode SDL2_SDL_GetCurrentDisplayMode
+
 #ifdef __cplusplus
 }
+#endif
+
+#else
+#include <SDL3/SDL_video.h>
 #endif

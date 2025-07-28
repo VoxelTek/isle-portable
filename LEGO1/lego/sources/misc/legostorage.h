@@ -5,11 +5,7 @@
 #include "mxgeometry/mxgeometry3d.h"
 #include "mxstring.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_iostream.h"
-#else
-#include <SDL3/SDL_iostream.h>
-#endif
 #include <assert.h>
 
 // VTABLE: LEGO1 0x100d7d80

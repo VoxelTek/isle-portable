@@ -30,7 +30,8 @@ target_compile_definitions(miniwin PRIVATE
 list(APPEND GRAPHICS_BACKENDS USE_SOFTWARE_RENDER)
 
 if (ISLE_USE_SDL2)
-  target_include_directories(miniwin PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../sdl2)
+  target_include_directories(miniwin PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../SDL)
+  add_definitions("-DISLE_SDL2")
 else()
   list(APPEND GRAPHICS_BACKENDS USE_SDL_GPU)
 endif()

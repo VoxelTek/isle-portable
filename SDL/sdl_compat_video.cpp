@@ -1,3 +1,4 @@
+#ifdef ISLE_SDL2
 #include "sdl_compat_video.h"
 
 bool SDL2_SDL_SetWindowBordered(SDL_Window *window, bool bordered) {
@@ -69,3 +70,4 @@ SDL_DisplayMode **SDL_GetFullscreenDisplayModes(SDL_DisplayID displayID, int *co
     }
     return result;
 }
+#endif

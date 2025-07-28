@@ -6,13 +6,8 @@
 #include "mxstring.h"
 #include "mxtypes.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_iostream.h"
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_iostream.h>
-#include <SDL3/SDL_stdinc.h>
-#endif
 
 // SIZE 0x18
 struct ModelDbPart {

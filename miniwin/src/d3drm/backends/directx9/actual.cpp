@@ -2,11 +2,7 @@
 
 #include "structs.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <d3d9.h>
 #include <vector>
 #include <windows.h>

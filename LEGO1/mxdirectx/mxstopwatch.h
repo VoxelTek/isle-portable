@@ -3,13 +3,8 @@
 
 #include "assert.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
 #include "sdl_compat_timer.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#include <SDL3/SDL_timer.h>
-#endif
 #include <limits.h> // ULONG_MAX
 #include <math.h>
 #ifdef MINIWIN

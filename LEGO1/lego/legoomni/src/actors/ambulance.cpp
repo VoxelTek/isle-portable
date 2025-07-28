@@ -23,11 +23,7 @@
 #include "mxvariabletable.h"
 #include "scripts.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <stdio.h>
 
 DECOMP_SIZE_ASSERT(Ambulance, 0x184)

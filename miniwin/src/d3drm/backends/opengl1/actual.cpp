@@ -4,13 +4,8 @@
 
 #include "structs.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
 #include "sdl_compat_opengl.h"
-#else
-#include <SDL3/SDL.h>
-#include <SDL3/SDL_opengl.h>
-#endif
 #include <algorithm>
 #include <cstring>
 #include <vector>

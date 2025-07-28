@@ -6,11 +6,7 @@
 #include "roi/legoroi.h"
 #include "tgl/tglvector.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(Doors, 0x1f8)

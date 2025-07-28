@@ -18,11 +18,7 @@
 #include "mxtransitionmanager.h"
 #include "mxvariabletable.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <stdio.h>
 
 DECOMP_SIZE_ASSERT(DuneBuggy, 0x16c)

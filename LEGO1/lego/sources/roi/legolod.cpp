@@ -7,11 +7,7 @@
 #include "shape/legomesh.h"
 #include "tgl/d3drm/impl.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 
 DECOMP_SIZE_ASSERT(LODObject, 0x04)
 DECOMP_SIZE_ASSERT(ViewLOD, 0x0c)

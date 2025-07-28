@@ -6,11 +6,7 @@
 #include "miniwin/ddraw.h"
 #include "miniwin/miniwind3d.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 
 extern SDL_Window* DDWindow;
 extern Direct3DRMRenderer* DDRenderer;

@@ -8,19 +8,11 @@
 #include "mxpresenter.h"
 #include "mxqueue.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_haptic.h"
 #include "sdl_compat_joystick.h"
 #include "sdl_compat_keyboard.h"
 #include "sdl_compat_keycode.h"
 #include "sdl_compat_timer.h"
-#else
-#include <SDL3/SDL_haptic.h>
-#include <SDL3/SDL_joystick.h>
-#include <SDL3/SDL_keyboard.h>
-#include <SDL3/SDL_keycode.h>
-#include <SDL3/SDL_timer.h>
-#endif
 
 #ifdef MINIWIN
 #include "miniwin/windows.h"

@@ -7,11 +7,7 @@
 #include "miniwin.h"
 #include "miniwin/d3d.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <assert.h>
 #include <cinttypes>
 #include <cstdint>
@@ -96,8 +92,12 @@ HRESULT DirectDrawImpl::CreateSurface(
 	}
 
 	SDL_PixelFormat format;
-#ifdef MINIWIN_PIXELFORMAT
+#if defined(MINIWIN_PIXELFORMAT) && defined(ISLE_SDL2)
+	format.format = MINIWIN_PIXELFORMAT;
+#elif defined(MINIWIN_PIXELFORMAT)
 	format = MINIWIN_PIXELFORMAT;
+#elif defined(ISLE_SDL2)
+	format.format = SDL_PIXELFORMAT_RGBA32;
 #else
 	format = SDL_PIXELFORMAT_RGBA32;
 #endif
@@ -112,7 +112,11 @@ HRESULT DirectDrawImpl::CreateSurface(
 							   : 0;
 
 			format = SDL_GetPixelFormatForMasks(bpp, rMask, gMask, bMask, aMask);
+#ifdef ISLE_SDL2
+			if (format.format == SDL_PIXELFORMAT_UNKNOWN) {
+#else
 			if (format == SDL_PIXELFORMAT_UNKNOWN) {
+#endif
 				return DDERR_INVALIDPIXELFORMAT;
 			}
 		}
@@ -153,10 +157,14 @@ HRESULT DirectDrawImpl::EnumDisplayModes(
 	HRESULT status = S_OK;
 
 	for (int i = 0; i < count_modes; i++) {
-#ifdef MINIWIN_PIXELFORMAT
-		format = MINIWIN_PIXELFORMAT;
+#if defined(MINIWIN_PIXELFORMAT) && defined(ISLE_SDL2)
+	format.format = MINIWIN_PIXELFORMAT;
+#elif defined(MINIWIN_PIXELFORMAT)
+	format = MINIWIN_PIXELFORMAT;
+#elif defined(ISLE_SDL2)
+	format.format = modes[i]->format;;
 #else
-		format = modes[i]->format;
+	format = modes[i]->format;;
 #endif
 
 		const SDL_PixelFormatDetails* details = SDL_GetPixelFormatDetails(format);
@@ -246,8 +254,12 @@ HRESULT DirectDrawImpl::GetDisplayMode(LPDDSURFACEDESC lpDDSurfaceDesc)
 	}
 
 	SDL_PixelFormat format;
-#ifdef MINIWIN_PIXELFORMAT
+#if defined(MINIWIN_PIXELFORMAT) && defined(ISLE_SDL2)
+	format.format = MINIWIN_PIXELFORMAT;
+#elif defined(MINIWIN_PIXELFORMAT)
 	format = MINIWIN_PIXELFORMAT;
+#elif defined(ISLE_SDL2)
+	format.format = mode->format;
 #else
 	format = mode->format;
 #endif

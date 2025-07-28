@@ -5,11 +5,7 @@
 #include "mxutilities.h"
 #include "mxvariabletable.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 
 DECOMP_SIZE_ASSERT(MxDSSelectAction, 0xb0)
 DECOMP_SIZE_ASSERT(MxStringList, 0x18)

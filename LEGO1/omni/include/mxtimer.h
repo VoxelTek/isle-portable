@@ -4,11 +4,7 @@
 #include "lego1_export.h"
 #include "mxcore.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 
 // VTABLE: LEGO1 0x100dc0e0
 // VTABLE: BETA10 0x101c1bb0

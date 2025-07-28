@@ -1,11 +1,7 @@
 #ifndef MXCRITICALSECTION_H
 #define MXCRITICALSECTION_H
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_mutex.h"
-#else
-#include <SDL3/SDL_mutex.h>
-#endif
 
 // SIZE 0x1c
 class MxCriticalSection {

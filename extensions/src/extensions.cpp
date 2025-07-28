@@ -2,11 +2,7 @@
 
 #include "extensions/textureloader.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_log.h"
-#else
-#include <SDL3/SDL_log.h>
-#endif
 
 void Extensions::Enable(const char* p_key, std::map<std::string, std::string> p_options)
 {

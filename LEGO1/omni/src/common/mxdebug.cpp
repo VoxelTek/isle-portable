@@ -6,11 +6,7 @@
 // Identical functions at BETA10 0x100ec9fe and 0x101741b5 are more limited in scope.
 // This is the most widely used version.
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_log.h"
-#else
-#include <SDL3/SDL_log.h>
-#endif
 #include <stdio.h>
 
 // FUNCTION: BETA10 0x10124cb9

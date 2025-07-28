@@ -26,11 +26,7 @@
 #include "realtime/realtimeview.h"
 #include "viewmanager/viewmanager.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <vec.h>
 
 DECOMP_SIZE_ASSERT(LegoNavController, 0x70)

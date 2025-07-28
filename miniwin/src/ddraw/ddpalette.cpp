@@ -1,11 +1,7 @@
 #include "ddpalette_impl.h"
 #include "miniwin/ddraw.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 
 DirectDrawPaletteImpl::DirectDrawPaletteImpl(LPPALETTEENTRY lpColorTable)
 {

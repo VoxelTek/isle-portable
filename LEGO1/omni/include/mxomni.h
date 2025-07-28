@@ -7,11 +7,7 @@
 #include "mxstl/stlcompat.h"
 #include "mxstring.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_video.h"
-#else
-#include <SDL3/SDL_video.h>
-#endif
 #ifdef MINIWIN
 #include "miniwin/windows.h"
 #else

@@ -1,10 +1,6 @@
 #include "mxtimer.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_timer.h"
-#else
-#include <SDL3/SDL_timer.h>
-#endif
 
 // GLOBAL: LEGO1 0x10101414
 // GLOBAL: BETA10 0x10201f84

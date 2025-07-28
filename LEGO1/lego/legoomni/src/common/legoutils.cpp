@@ -31,15 +31,9 @@
 #include "scripts.h"
 
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_events.h"
 #include "sdl_compat_process.h"
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_events.h>
-#include <SDL3/SDL_process.h>
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <stdio.h>
 #include <string.h>
 #include <vec.h>

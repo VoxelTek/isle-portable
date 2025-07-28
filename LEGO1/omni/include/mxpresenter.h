@@ -7,11 +7,7 @@
 #include "mxgeometry.h"
 #include "mxutilities.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_events.h"
-#else
-#include <SDL3/SDL_events.h>
-#endif
 
 class MxCompositePresenter;
 class MxDSAction;

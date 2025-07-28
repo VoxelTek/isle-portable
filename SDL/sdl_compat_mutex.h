@@ -1,6 +1,9 @@
 #pragma once
 
+#ifdef ISLE_SDL2
+
 #include <SDL2/SDL_mutex.h>
+#include "sdl_compat_stdinc.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -8,4 +11,8 @@ extern "C" {
 
 #ifdef __cplusplus
 }
+#endif
+
+#else
+#include <SDL3/SDL_mutex.h>
 #endif

@@ -3,11 +3,7 @@
 
 #include "mxtypes.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_mutex.h"
-#else
-#include <SDL3/SDL_mutex.h>
-#endif
 
 // VTABLE: LEGO1 0x100dccf0
 // VTABLE: BETA10 0x101c28ac

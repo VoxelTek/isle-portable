@@ -8,11 +8,7 @@
 #include "mxmisc.h"
 #include "mxvariabletable.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <vec.h>
 
 // File name verified by BETA10 0x100cedf7

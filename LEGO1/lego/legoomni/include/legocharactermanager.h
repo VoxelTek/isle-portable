@@ -7,11 +7,7 @@
 #include "mxvariable.h"
 #include "roi/legoroi.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 
 class LegoActor;
 class LegoExtraActor;

@@ -28,11 +28,7 @@
 #include "realtime/realtime.h"
 #include "viewmanager/viewmanager.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <stdio.h>
 #include <vec.h>
 

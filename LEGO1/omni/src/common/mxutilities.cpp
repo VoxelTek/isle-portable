@@ -9,11 +9,7 @@
 #include "mxgeometry.h"
 #include "mxpresenterlist.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#endif
 #include <assert.h>
 
 LegoSdlEvents g_legoSdlEvents;

@@ -30,13 +30,8 @@
 #include "racecar_actions.h"
 #include "scripts.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_stdinc.h"
 #include "sdl_compat_timer.h"
-#else
-#include <SDL3/SDL_stdinc.h>
-#include <SDL3/SDL_timer.h>
-#endif
 
 #include <isle.h>
 #include <stdio.h>

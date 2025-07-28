@@ -16,11 +16,7 @@
 #include "mxutilities.h"
 #include "mxvariabletable.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <mxdebug.h>
 #include <vec.h>
 

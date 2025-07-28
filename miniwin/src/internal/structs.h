@@ -1,10 +1,6 @@
 #pragma once
 
-#ifdef ISLE_SDL2
 #include "sdl_compat.h"
-#else
-#include <SDL3/SDL.h>
-#endif
 #include <stdint.h>
 
 typedef float Matrix3x3[3][3];

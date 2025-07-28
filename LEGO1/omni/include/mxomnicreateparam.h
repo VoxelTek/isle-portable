@@ -7,11 +7,7 @@
 #include "mxstring.h"
 #include "mxvideoparam.h"
 
-#ifdef ISLE_SDL2
 #include "sdl_compat_video.h"
-#else
-#include <SDL3/SDL_video.h>
-#endif
 
 // VTABLE: LEGO1 0x100dc218
 // VTABLE: BETA10 0x101c1ca8
