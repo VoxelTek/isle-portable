@@ -369,4 +369,8 @@ SDL_PixelFormat SDL_GetPixelFormatForMasks(int bpp, Uint32 Rmask, Uint32 Gmask, 
     }
     return SDL_PIXELFORMAT_UNKNOWN;
 }
+
+Uint32 SDL2_SDL_MapRGBA(const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 r, Uint8 g, Uint8 b, Uint8 a) {
+	return SDL_MapRGBA(format, r, g, b, a);
+}
 #endif

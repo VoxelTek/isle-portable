@@ -29,25 +29,7 @@
 extern "C" {
 #endif
 
-typedef struct SDL_PixelFormatDetails
-{
-    SDL_PixelFormat format;
-    Uint8 bits_per_pixel;
-    Uint8 bytes_per_pixel;
-    Uint8 padding[2];
-    Uint32 Rmask;
-    Uint32 Gmask;
-    Uint32 Bmask;
-    Uint32 Amask;
-    Uint8 Rbits;
-    Uint8 Gbits;
-    Uint8 Bbits;
-    Uint8 Abits;
-    Uint8 Rshift;
-    Uint8 Gshift;
-    Uint8 Bshift;
-    Uint8 Ashift;
-} SDL_PixelFormatDetails;
+#define SDL_PixelFormatDetails SDL_PixelFormat
 
 //Functions that don't exist in SDL2
 SDL_Palette * SDL_CreatePalette(int ncolors);
@@ -55,13 +37,19 @@ void SDL_DestroyPalette(SDL_Palette *palette);
 SDL_Surface * SDL_CreateSurface(int width, int height, SDL_PixelFormat format);
 void SDL_DestroySurface(SDL_Surface *surface);
 
-#define SDL_PixelFormat SDL_PixelFormatEnum
+
+//#define SDL_PixelFormat SDL_PixelFormatEnum
 SDL_PixelFormat SDL_GetPixelFormatForMasks(int bpp, Uint32 Rmask, Uint32 Gmask, Uint32 Bmask, Uint32 Amask);
 
-#define SDL_GetPixelFormatDetails SDL_AllocFormat
+//Remapping functions
+Uint32 SDL2_SDL_MapRGBA(const SDL_PixelFormatDetails *format, const SDL_Palette *palette, Uint8 r, Uint8 g, Uint8 b, Uint8 a);
+
+//#define SDL_GetPixelFormatDetails SDL_AllocFormat
 #define SDL_GetPixelFormatForMasks SDL_MasksToPixelFormatEnum
 #define SDL_GetPixelFormatDetails(x) x
 #define SDL_SCALEMODE_NEAREST SDL_ScaleModeNearest
+#define bits_per_pixel BitsPerPixel
+#define SDL_MapRGBA SDL2_SDL_MapRGBA
 
 
 #ifdef __cplusplus
