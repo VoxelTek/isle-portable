@@ -1,8 +1,8 @@
 #include "mxdirectxinfo.h"
 
 #include "omni/include/mxvideoparam.h"
-
 #include "sdl_compat_log.h"
+
 #include <assert.h>
 #include <miniwin/miniwind3d.h>
 #include <stdio.h> // for vsprintf

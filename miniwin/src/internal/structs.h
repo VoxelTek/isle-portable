@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sdl_compat.h"
+
 #include <stdint.h>
 
 typedef float Matrix3x3[3][3];

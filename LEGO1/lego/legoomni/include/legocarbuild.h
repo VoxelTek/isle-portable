@@ -5,7 +5,6 @@
 #include "legostate.h"
 #include "legoworld.h"
 #include "mxgeometry/mxquaternion.h"
-
 #include "sdl_compat_stdinc.h"
 
 class LegoCarBuildAnimPresenter;

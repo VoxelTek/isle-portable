@@ -10,7 +10,6 @@
 #include "legovideomanager.h"
 #include "misc.h"
 #include "mxticklemanager.h"
-
 #include "sdl_compat.h"
 #ifdef ISLE_SDL2
 #include <backends/imgui_impl_sdl2.h>

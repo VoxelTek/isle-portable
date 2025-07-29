@@ -8,7 +8,6 @@
 #include "mxtransitionmanager.h"
 #include "mxtypes.h"
 #include "mxvideoparam.h"
-
 #include "sdl_compat.h"
 #ifdef MINIWIN
 #include "miniwin/windows.h"

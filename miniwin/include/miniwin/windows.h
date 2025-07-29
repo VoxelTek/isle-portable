@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sdl_compat_video.h"
+
 #include <limits.h>
 #include <stdint.h>
 #include <string.h>

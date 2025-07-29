@@ -7,7 +7,6 @@
 #include "mxlist.h"
 #include "mxpresenter.h"
 #include "mxqueue.h"
-
 #include "sdl_compat_haptic.h"
 #include "sdl_compat_joystick.h"
 #include "sdl_compat_keyboard.h"

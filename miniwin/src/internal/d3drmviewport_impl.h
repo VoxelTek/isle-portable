@@ -3,8 +3,8 @@
 #include "d3drmobject_impl.h"
 #include "d3drmrenderer.h"
 #include "miniwin/d3drm.h"
-
 #include "sdl_compat.h"
+
 #include <vector>
 
 struct DeferredDrawCommand {

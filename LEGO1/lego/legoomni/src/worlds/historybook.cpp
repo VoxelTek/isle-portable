@@ -9,7 +9,6 @@
 #include "mxnotificationmanager.h"
 #include "mxstillpresenter.h"
 #include "mxtransitionmanager.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(HistoryBook, 0x3e4)

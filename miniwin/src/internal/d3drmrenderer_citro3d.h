@@ -2,8 +2,8 @@
 
 #include "d3drmrenderer.h"
 #include "ddraw_impl.h"
-
 #include "sdl_compat.h"
+
 #include <citro3d.h>
 #include <vector>
 

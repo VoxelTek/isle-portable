@@ -3,7 +3,6 @@
 
 #include "mxcore.h"
 #include "mxdsbuffer.h"
-
 #include "sdl_compat_iostream.h"
 
 // VTABLE: LEGO1 0x100dc8c8

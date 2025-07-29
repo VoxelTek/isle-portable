@@ -3,8 +3,8 @@
 #include "d3drmrenderer.h"
 #include "d3drmtexture_impl.h"
 #include "ddraw_impl.h"
-
 #include "sdl_compat.h"
+
 #include <cstddef>
 #include <vector>
 

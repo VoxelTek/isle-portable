@@ -7,8 +7,8 @@
 #include "mxpalette.h"
 #include "mxutilities.h"
 #include "mxvideomanager.h"
-
 #include "sdl_compat_log.h"
+
 #include <assert.h>
 #ifdef MINIWIN
 #include "miniwin/windows.h"

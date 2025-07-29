@@ -3,7 +3,6 @@
 
 #include "lego1_export.h"
 #include "legoentitypresenter.h"
-
 #include "sdl_compat_iostream.h"
 
 class LegoWorld;

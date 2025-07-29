@@ -2,10 +2,10 @@
 
 #include "decomp.h"
 #include "mxomni.h"
-
 #include "sdl_compat_log.h"
 #include "sdl_compat_platform_defines.h"
 #include "sdl_compat_stdinc.h"
+
 #include <stdlib.h>
 #include <string.h>
 

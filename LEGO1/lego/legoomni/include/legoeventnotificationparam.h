@@ -3,8 +3,8 @@
 
 #include "mxnotificationparam.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_keycode.h"
+
 #include <stdlib.h>
 
 class LegoROI;

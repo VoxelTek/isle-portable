@@ -3,9 +3,9 @@
 #include "d3drmrenderer.h"
 #include "d3drmtexture_impl.h"
 #include "ddraw_impl.h"
+#include "sdl_compat.h"
 
 #include <GLES3/gl3.h>
-#include "sdl_compat.h"
 #include <vector>
 
 DEFINE_GUID(OpenGLES3_GUID, 0x682656F3, 0x0000, 0x0000, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x04);

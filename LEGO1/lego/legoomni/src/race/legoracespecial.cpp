@@ -7,8 +7,8 @@
 #include "misc.h"
 #include "mxmisc.h"
 #include "mxvariabletable.h"
-
 #include "sdl_compat_stdinc.h"
+
 #include <vec.h>
 
 // File name verified by BETA10 0x100cedf7

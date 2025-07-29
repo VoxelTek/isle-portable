@@ -4,9 +4,9 @@
 #include "mxmisc.h"
 #include "mxtimer.h"
 #include "roi/legoroi.h"
+#include "sdl_compat_stdinc.h"
 #include "tgl/tglvector.h"
 
-#include "sdl_compat_stdinc.h"
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(Doors, 0x1f8)
@@ -133,7 +133,8 @@ void Doors::ParseAction(char* p_extra)
 		if (roi && (!SDL_strncasecmp(roi->GetName(), "dor-lt", 6) || !SDL_strncasecmp(roi->GetName(), "dor-sl", 6))) {
 			m_ltDoor = roi;
 		}
-		else if (roi && (!SDL_strncasecmp(roi->GetName(), "dor-rt", 6) || !SDL_strncasecmp(roi->GetName(), "dor-sr", 6))) {
+		else if (roi &&
+				 (!SDL_strncasecmp(roi->GetName(), "dor-rt", 6) || !SDL_strncasecmp(roi->GetName(), "dor-sr", 6))) {
 			m_rtDoor = roi;
 		}
 	}

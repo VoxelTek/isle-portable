@@ -3,7 +3,6 @@
 #endif
 
 #include "mxdirect3d.h"
-
 #include "sdl_compat.h"
 
 #include <assert.h>

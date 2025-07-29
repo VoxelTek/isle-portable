@@ -5,7 +5,6 @@
 #include "mxmisc.h"
 #include "mxticklemanager.h"
 #include "mxtimer.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LegoPathController, 0x40)

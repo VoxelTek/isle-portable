@@ -30,10 +30,9 @@
 #include "mxtransitionmanager.h"
 #include "mxvariabletable.h"
 #include "scripts.h"
-#include "viewmanager/viewmanager.h"
-
 #include "sdl_compat_log.h"
 #include "sdl_compat_stdinc.h"
+#include "viewmanager/viewmanager.h"
 
 DECOMP_SIZE_ASSERT(LegoOmni, 0x140)
 DECOMP_SIZE_ASSERT(LegoOmni::WorldContainer, 0x1c)

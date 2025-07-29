@@ -2,7 +2,6 @@
 #define MXSEMAPHORE_H
 
 #include "mxtypes.h"
-
 #include "sdl_compat_mutex.h"
 
 // VTABLE: LEGO1 0x100dccf0

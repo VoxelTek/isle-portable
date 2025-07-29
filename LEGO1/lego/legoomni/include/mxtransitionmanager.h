@@ -4,7 +4,6 @@
 #include "decomp.h"
 #include "lego1_export.h"
 #include "mxcore.h"
-
 #include "sdl_compat_stdinc.h"
 #ifdef MINIWIN
 #include "miniwin/ddraw.h"

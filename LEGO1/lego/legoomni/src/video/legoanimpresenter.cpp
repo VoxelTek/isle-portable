@@ -25,9 +25,9 @@
 #include "mxvariabletable.h"
 #include "mxvideomanager.h"
 #include "realtime/realtime.h"
+#include "sdl_compat_stdinc.h"
 #include "viewmanager/viewmanager.h"
 
-#include "sdl_compat_stdinc.h"
 #include <stdio.h>
 
 DECOMP_SIZE_ASSERT(LegoAnimPresenter, 0xbc)

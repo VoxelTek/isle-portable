@@ -4,7 +4,6 @@
 #include "compat.h"
 #include "mxsemaphore.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_thread.h"
 
 class MxCore;

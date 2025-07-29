@@ -1,8 +1,8 @@
 #include "mxdirectdraw.h"
 
 #include "decomp.h"
-
 #include "sdl_compat_log.h"
+
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(MxDirectDraw, 0x880)

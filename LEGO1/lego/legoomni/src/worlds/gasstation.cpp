@@ -21,7 +21,6 @@
 #include "mxtransitionmanager.h"
 #include "radio.h"
 #include "scripts.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(GasStation, 0x128)

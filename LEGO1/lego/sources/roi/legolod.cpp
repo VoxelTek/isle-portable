@@ -4,10 +4,9 @@
 #include "legoroi.h"
 #include "misc/legocontainer.h"
 #include "misc/legostorage.h"
+#include "sdl_compat_stdinc.h"
 #include "shape/legomesh.h"
 #include "tgl/d3drm/impl.h"
-
-#include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LODObject, 0x04)
 DECOMP_SIZE_ASSERT(ViewLOD, 0x0c)
@@ -57,9 +56,9 @@ LegoLOD::~LegoLOD()
 // FUNCTION: LEGO1 0x100aa510
 LegoResult LegoLOD::Read(Tgl::Renderer* p_renderer, LegoTextureContainer* p_textureContainer, LegoStorage* p_storage)
 {
-	float(*normals)[3] = NULL;
-	float(*vertices)[3] = NULL;
-	float(*textureVertices)[2] = NULL;
+	float (*normals)[3] = NULL;
+	float (*vertices)[3] = NULL;
+	float (*textureVertices)[2] = NULL;
 	LegoS32 numVerts = 0;
 	LegoS32 numNormals = 0;
 	LegoS32 numTextureVertices = 0;

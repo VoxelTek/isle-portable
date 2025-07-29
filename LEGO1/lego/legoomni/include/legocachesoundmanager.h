@@ -5,7 +5,6 @@
 #include "legocachsound.h"
 #include "mxstl/stlcompat.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_stdinc.h"
 
 #pragma warning(disable : 4237)

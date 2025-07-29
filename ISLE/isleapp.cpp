@@ -45,6 +45,7 @@
 #define SDL_MAIN_USE_CALLBACKS
 #include "sdl_compat.h"
 #include "sdl_compat_main.h"
+
 #include <errno.h>
 #include <iniparser.h>
 #include <stdlib.h>

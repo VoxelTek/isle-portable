@@ -6,7 +6,6 @@
 #include "mxtypes.h"
 #include "mxvariable.h"
 #include "roi/legoroi.h"
-
 #include "sdl_compat_stdinc.h"
 
 class LegoActor;

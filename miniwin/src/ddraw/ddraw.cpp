@@ -6,8 +6,8 @@
 #include "dummysurface_impl.h"
 #include "miniwin.h"
 #include "miniwin/d3d.h"
-
 #include "sdl_compat.h"
+
 #include <assert.h>
 #include <cinttypes>
 #include <cstdint>
@@ -158,13 +158,15 @@ HRESULT DirectDrawImpl::EnumDisplayModes(
 
 	for (int i = 0; i < count_modes; i++) {
 #if defined(MINIWIN_PIXELFORMAT) && defined(ISLE_SDL2)
-	format.format = MINIWIN_PIXELFORMAT;
+		format.format = MINIWIN_PIXELFORMAT;
 #elif defined(MINIWIN_PIXELFORMAT)
-	format = MINIWIN_PIXELFORMAT;
+		format = MINIWIN_PIXELFORMAT;
 #elif defined(ISLE_SDL2)
-	format.format = modes[i]->format;;
+		format.format = modes[i]->format;
+		;
 #else
-	format = modes[i]->format;;
+		format = modes[i]->format;
+		;
 #endif
 
 		const SDL_PixelFormatDetails* details = SDL_GetPixelFormatDetails(format);

@@ -6,7 +6,6 @@
 #include "mxcriticalsection.h"
 #include "mxgeometry.h"
 #include "mxutilities.h"
-
 #include "sdl_compat_events.h"
 
 class MxCompositePresenter;

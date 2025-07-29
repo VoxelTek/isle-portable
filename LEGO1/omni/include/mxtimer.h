@@ -3,7 +3,6 @@
 
 #include "lego1_export.h"
 #include "mxcore.h"
-
 #include "sdl_compat_stdinc.h"
 
 // VTABLE: LEGO1 0x100dc0e0

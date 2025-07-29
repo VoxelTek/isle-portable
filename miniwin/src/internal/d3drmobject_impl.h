@@ -1,8 +1,8 @@
 #pragma once
 
 #include "miniwin/d3drm.h"
-
 #include "sdl_compat.h"
+
 #include <vector>
 
 template <typename T>

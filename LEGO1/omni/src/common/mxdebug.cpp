@@ -7,6 +7,7 @@
 // This is the most widely used version.
 
 #include "sdl_compat_log.h"
+
 #include <stdio.h>
 
 // FUNCTION: BETA10 0x10124cb9

@@ -1,7 +1,6 @@
 #include "mxthread.h"
 
 #include "decomp.h"
-
 #include "sdl_compat_timer.h"
 
 DECOMP_SIZE_ASSERT(MxThread, 0x1c)

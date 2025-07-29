@@ -1,6 +1,7 @@
 #include "legodxinfo.h"
 
 #include "sdl_compat_cpuinfo.h"
+
 #include <assert.h>
 #include <stdio.h> // for vsprintf
 
@@ -109,8 +110,11 @@ int LegoDeviceEnumerate::GetDevice(int p_deviceNum, MxDriver*& p_driver, Direct3
 
 // FUNCTION: CONFIG 0x004027d0
 // FUNCTION: BETA10 0x1011cb70
-int LegoDeviceEnumerate::FormatDeviceName(char* p_buffer, const MxDriver* p_ddInfo, const Direct3DDeviceInfo* p_d3dInfo)
-	const
+int LegoDeviceEnumerate::FormatDeviceName(
+	char* p_buffer,
+	const MxDriver* p_ddInfo,
+	const Direct3DDeviceInfo* p_d3dInfo
+) const
 {
 	int number = 0;
 	assert(p_ddInfo && p_d3dInfo);

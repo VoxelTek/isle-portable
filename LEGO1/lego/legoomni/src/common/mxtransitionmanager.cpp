@@ -11,7 +11,6 @@
 #include "mxparam.h"
 #include "mxticklemanager.h"
 #include "mxvideopresenter.h"
-
 #include "sdl_compat_timer.h"
 
 DECOMP_SIZE_ASSERT(MxTransitionManager, 0x900)

@@ -24,9 +24,9 @@
 #include "mxutilities.h"
 #include "realtime/realtime.h"
 #include "realtime/realtimeview.h"
+#include "sdl_compat_stdinc.h"
 #include "viewmanager/viewmanager.h"
 
-#include "sdl_compat_stdinc.h"
 #include <vec.h>
 
 DECOMP_SIZE_ASSERT(LegoNavController, 0x70)

@@ -29,7 +29,6 @@
 #include "racecar.h"
 #include "racecar_actions.h"
 #include "scripts.h"
-
 #include "sdl_compat_stdinc.h"
 #include "sdl_compat_timer.h"
 

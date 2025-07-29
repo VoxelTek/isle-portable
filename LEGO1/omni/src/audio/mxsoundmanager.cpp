@@ -8,7 +8,6 @@
 #include "mxticklemanager.h"
 #include "mxticklethread.h"
 #include "mxwavepresenter.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(MxSoundManager, 0x3c);

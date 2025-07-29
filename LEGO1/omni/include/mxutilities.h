@@ -3,8 +3,8 @@
 
 #include "lego1_export.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_stdinc.h"
+
 #include <string.h>
 
 struct LegoSdlEvents {

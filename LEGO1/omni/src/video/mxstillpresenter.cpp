@@ -11,7 +11,6 @@
 #include "mxpalette.h"
 #include "mxutilities.h"
 #include "mxvideomanager.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(MxStillPresenter, 0x6c);

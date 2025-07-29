@@ -6,7 +6,6 @@
 #include "mxcriticalsection.h"
 #include "mxstl/stlcompat.h"
 #include "mxstring.h"
-
 #include "sdl_compat_video.h"
 #ifdef MINIWIN
 #include "miniwin/windows.h"

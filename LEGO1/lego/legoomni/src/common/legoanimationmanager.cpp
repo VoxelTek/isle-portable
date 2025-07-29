@@ -26,9 +26,9 @@
 #include "mxtimer.h"
 #include "mxutilities.h"
 #include "realtime/realtime.h"
+#include "sdl_compat.h"
 #include "viewmanager/viewmanager.h"
 
-#include "sdl_compat.h"
 #include <stdio.h>
 #include <vec.h>
 

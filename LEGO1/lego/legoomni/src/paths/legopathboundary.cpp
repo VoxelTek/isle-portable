@@ -5,7 +5,6 @@
 #include "legoanimpresenter.h"
 #include "legopathactor.h"
 #include "legopathstruct.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(LegoPathBoundary, 0x74)

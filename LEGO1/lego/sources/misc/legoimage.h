@@ -2,7 +2,6 @@
 #define __LEGOIMAGE_H
 
 #include "legotypes.h"
-
 #include "sdl_compat_surface.h"
 
 class LegoStorage;

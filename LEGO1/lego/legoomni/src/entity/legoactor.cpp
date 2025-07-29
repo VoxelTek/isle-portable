@@ -6,7 +6,6 @@
 #include "misc.h"
 #include "mxutilities.h"
 #include "roi/legoroi.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LegoActor, 0x78)

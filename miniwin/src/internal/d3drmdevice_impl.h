@@ -4,7 +4,6 @@
 #include "d3drmrenderer.h"
 #include "miniwin/d3drm.h"
 #include "miniwin/miniwindevice.h"
-
 #include "sdl_compat.h"
 
 struct Direct3DRMDevice2Impl : public Direct3DRMObjectBaseImpl<IDirect3DRMDevice2>, public IDirect3DRMMiniwinDevice {

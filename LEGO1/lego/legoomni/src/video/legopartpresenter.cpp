@@ -8,9 +8,8 @@
 #include "mxdirectx/mxdirect3d.h"
 #include "mxdsaction.h"
 #include "mxdssubscriber.h"
-#include "viewmanager/viewlodlist.h"
-
 #include "sdl_compat_stdinc.h"
+#include "viewmanager/viewlodlist.h"
 
 DECOMP_SIZE_ASSERT(LegoLODList, 0x18)
 DECOMP_SIZE_ASSERT(LegoNamedPart, 0x14)

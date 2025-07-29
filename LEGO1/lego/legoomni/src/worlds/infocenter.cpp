@@ -1516,7 +1516,7 @@ void Infocenter::PlayAction(InfomainScript::Script p_script)
 		}
 		else if (p_script > InfomainScript::c_iicx18in_RunAnim) {
 			// Shift all other actions by 1
-			p_script = (InfomainScript::Script)((int) p_script - 1);
+			p_script = (InfomainScript::Script) ((int) p_script - 1);
 		}
 	}
 

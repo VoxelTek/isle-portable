@@ -29,11 +29,10 @@
 #include "mxvariabletable.h"
 #include "realtime/realtime.h"
 #include "scripts.h"
-
-
 #include "sdl_compat_events.h"
 #include "sdl_compat_process.h"
 #include "sdl_compat_stdinc.h"
+
 #include <stdio.h>
 #include <string.h>
 #include <vec.h>

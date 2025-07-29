@@ -5,7 +5,6 @@
 #include "mxlist.h"
 #include "mxstring.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_iostream.h"
 #include "sdl_compat_stdinc.h"
 

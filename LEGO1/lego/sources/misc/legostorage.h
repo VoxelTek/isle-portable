@@ -4,8 +4,8 @@
 #include "legotypes.h"
 #include "mxgeometry/mxgeometry3d.h"
 #include "mxstring.h"
-
 #include "sdl_compat_iostream.h"
+
 #include <assert.h>
 
 // VTABLE: LEGO1 0x100d7d80

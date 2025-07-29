@@ -9,8 +9,8 @@
 #include "mxomni.h"
 #include "mxsoundmanager.h"
 #include "mxutilities.h"
-
 #include "sdl_compat_stdinc.h"
+
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(MxWavePresenter, 0x6c);

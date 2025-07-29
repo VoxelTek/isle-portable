@@ -8,7 +8,6 @@
 #include "misc.h"
 #include "mxdebug.h"
 #include "roi/legoroi.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(VisibilityVariable, 0x24)

@@ -15,8 +15,8 @@
 #include "mxtimer.h"
 #include "mxutilities.h"
 #include "mxvariabletable.h"
-
 #include "sdl_compat.h"
+
 #include <mxdebug.h>
 #include <vec.h>
 

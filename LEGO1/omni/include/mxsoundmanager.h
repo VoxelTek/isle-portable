@@ -5,7 +5,6 @@
 #include "mxatom.h"
 #include "mxaudiomanager.h"
 #include "mxminiaudio.h"
-
 #include "sdl_compat_audio.h"
 
 // VTABLE: LEGO1 0x100dc128

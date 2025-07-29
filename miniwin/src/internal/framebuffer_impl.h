@@ -1,6 +1,7 @@
 #pragma once
 
 #include "sdl_compat.h"
+
 #include <ddsurface_impl.h>
 #include <miniwin/ddraw.h>
 
@@ -19,8 +20,13 @@ struct FrameBufferImpl : public IDirectDrawSurface3 {
 		DDBltFlags dwFlags,
 		LPDDBLTFX lpDDBltFx
 	) override;
-	HRESULT BltFast(DWORD dwX, DWORD dwY, IDirectDrawSurface* lpDDSrcSurface, LPRECT lpSrcRect, DDBltFastFlags dwTrans)
-		override;
+	HRESULT BltFast(
+		DWORD dwX,
+		DWORD dwY,
+		IDirectDrawSurface* lpDDSrcSurface,
+		LPRECT lpSrcRect,
+		DDBltFastFlags dwTrans
+	) override;
 	HRESULT Flip(IDirectDrawSurface* lpDDSurfaceTargetOverride, DDFlipFlags dwFlags) override;
 	HRESULT GetAttachedSurface(LPDDSCAPS lpDDSCaps, IDirectDrawSurface** lplpDDAttachedSurface) override;
 	HRESULT GetDC(HDC* lphDC) override;

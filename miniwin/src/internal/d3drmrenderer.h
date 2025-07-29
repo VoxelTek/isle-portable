@@ -5,9 +5,8 @@
 #include "miniwin/d3drm.h"
 #include "miniwin/miniwind3d.h"
 #include "miniwin/miniwindevice.h"
-#include "structs.h"
-
 #include "sdl_compat.h"
+#include "structs.h"
 
 #define NO_TEXTURE_ID 0xffffffff
 

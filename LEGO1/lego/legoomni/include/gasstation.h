@@ -6,8 +6,6 @@
 #include "legostate.h"
 #include "legoworld.h"
 #include "radio.h"
-
-
 #include "sdl_compat_keycode.h"
 
 class MxStillPresenter;

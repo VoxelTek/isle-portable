@@ -3,7 +3,6 @@
 
 #include "mxcore.h"
 #include "mxtypes.h"
-
 #include "sdl_compat_iostream.h"
 #ifdef MINIWIN
 #include "miniwin/ddraw.h"

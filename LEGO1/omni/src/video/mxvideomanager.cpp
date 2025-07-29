@@ -9,7 +9,6 @@
 #include "mxregion.h"
 #include "mxticklemanager.h"
 #include "mxticklethread.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(MxVideoManager, 0x64)

@@ -2,8 +2,8 @@
 
 #include "decomp.h"
 #include "mxdebug.h"
-
 #include "sdl_compat.h"
+
 #include <stdio.h>
 
 #define SI_MAJOR_VERSION 2

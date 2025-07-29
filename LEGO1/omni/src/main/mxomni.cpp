@@ -16,7 +16,6 @@
 #include "mxtimer.h"
 #include "mxvariabletable.h"
 #include "mxvideomanager.h"
-
 #include "sdl_compat_filesystem.h"
 #include "sdl_compat_log.h"
 

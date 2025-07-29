@@ -10,7 +10,6 @@
 #include "mxautolock.h"
 #include "mxdebug.h"
 #include "roi/legoroi.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(LegoInputManager, 0x338)

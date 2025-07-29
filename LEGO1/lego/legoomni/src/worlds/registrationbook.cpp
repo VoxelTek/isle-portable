@@ -28,7 +28,6 @@
 #include "racecar_actions.h"
 #include "regbook_actions.h"
 #include "scripts.h"
-
 #include "sdl_compat_log.h"
 
 DECOMP_SIZE_ASSERT(RegistrationBook, 0x2d0)

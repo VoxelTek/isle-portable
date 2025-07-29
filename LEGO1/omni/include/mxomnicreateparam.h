@@ -6,7 +6,6 @@
 #include "mxparam.h"
 #include "mxstring.h"
 #include "mxvideoparam.h"
-
 #include "sdl_compat_video.h"
 
 // VTABLE: LEGO1 0x100dc218

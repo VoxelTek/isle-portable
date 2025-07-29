@@ -8,7 +8,6 @@
 #include "mxcompositepresenter.h"
 #include "mxdirectx/mxdirect3d.h"
 #include "mxdssubscriber.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LegoTexturePresenter, 0x54)

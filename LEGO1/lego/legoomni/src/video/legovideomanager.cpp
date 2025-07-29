@@ -16,11 +16,11 @@
 #include "mxtransitionmanager.h"
 #include "realtime/realtime.h"
 #include "roi/legoroi.h"
+#include "sdl_compat_log.h"
+#include "sdl_compat_stdinc.h"
 #include "tgl/d3drm/impl.h"
 #include "viewmanager/viewroi.h"
 
-#include "sdl_compat_log.h"
-#include "sdl_compat_stdinc.h"
 #include <stdio.h>
 
 DECOMP_SIZE_ASSERT(LegoVideoManager, 0x590)

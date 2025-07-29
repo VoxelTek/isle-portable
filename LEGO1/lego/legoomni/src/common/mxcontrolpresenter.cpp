@@ -8,9 +8,9 @@
 #include "mxticklemanager.h"
 #include "mxtimer.h"
 #include "mxutilities.h"
-
 #include "sdl_compat_log.h"
 #include "sdl_compat_stdinc.h"
+
 #include <assert.h>
 
 DECOMP_SIZE_ASSERT(MxControlPresenter, 0x5c)

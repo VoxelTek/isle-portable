@@ -2,7 +2,6 @@
 #define MXIO_H
 
 #include "mxtypes.h"
-
 #include "sdl_compat_iostream.h"
 
 // [library:filesystem]

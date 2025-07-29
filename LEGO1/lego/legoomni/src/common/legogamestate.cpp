@@ -56,11 +56,10 @@
 #include "regbook_actions.h"
 #include "roi/legoroi.h"
 #include "scripts.h"
-#include "sndanim_actions.h"
-#include "towtrack.h"
-
 #include "sdl_compat_filesystem.h"
 #include "sdl_compat_stdinc.h"
+#include "sndanim_actions.h"
+#include "towtrack.h"
 
 #include <assert.h>
 #include <stdio.h>

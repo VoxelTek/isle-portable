@@ -18,7 +18,6 @@
 #include "mxutilities.h"
 #include "realtime/realtime.h"
 #include "roi/legoroi.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LegoModelPresenter, 0x6c)

@@ -5,10 +5,9 @@
 #include "legogamestate.h"
 #include "misc.h"
 #include "mxomni.h"
-
-
 #include "sdl_compat_filesystem.h"
 #include "sdl_compat_log.h"
+
 #include <emscripten.h>
 #include <emscripten/wasmfs.h>
 

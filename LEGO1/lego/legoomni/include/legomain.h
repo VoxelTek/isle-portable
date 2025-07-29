@@ -6,7 +6,6 @@
 #include "legoutils.h"
 #include "mxdsaction.h"
 #include "mxomni.h"
-
 #include "sdl_compat_events.h"
 #include "sdl_compat_timer.h"
 

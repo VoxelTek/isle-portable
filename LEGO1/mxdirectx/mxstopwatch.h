@@ -2,9 +2,9 @@
 #define _MxStopWatch_h
 
 #include "assert.h"
-
 #include "sdl_compat_stdinc.h"
 #include "sdl_compat_timer.h"
+
 #include <limits.h> // ULONG_MAX
 #include <math.h>
 #ifdef MINIWIN

@@ -1,7 +1,6 @@
 #include "legomesh.h"
 
 #include "misc/legostorage.h"
-
 #include "sdl_compat_stdinc.h"
 
 DECOMP_SIZE_ASSERT(LegoMeshUnkComponent, 0x1c)

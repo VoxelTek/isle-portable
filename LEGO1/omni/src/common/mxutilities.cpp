@@ -8,8 +8,8 @@
 #include "mxdsobject.h"
 #include "mxgeometry.h"
 #include "mxpresenterlist.h"
-
 #include "sdl_compat_stdinc.h"
+
 #include <assert.h>
 
 LegoSdlEvents g_legoSdlEvents;

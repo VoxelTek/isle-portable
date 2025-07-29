@@ -6,10 +6,10 @@
 #include "misc/legostorage.h"
 #include "mxgeometry/mxgeometry4d.h"
 #include "realtime/realtime.h"
+#include "sdl_compat_stdinc.h"
 #include "shape/legobox.h"
 #include "shape/legosphere.h"
 
-#include "sdl_compat_stdinc.h"
 #include <string.h>
 #include <vec.h>
 
