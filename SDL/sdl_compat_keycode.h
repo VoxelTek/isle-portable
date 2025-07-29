@@ -2,11 +2,13 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_keycode.h>
 #include "sdl_compat_stdinc.h"
 
+#include <SDL2/SDL_keycode.h>
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

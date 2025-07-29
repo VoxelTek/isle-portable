@@ -4,10 +4,10 @@
 #include "compat.h"
 #include "decomp.h"
 #include "res/resource.h"
+#include "sdl_compat.h"
 
 #include <QDialog>
 #include <QFileDialog>
-#include "sdl_compat.h"
 
 namespace Ui
 {

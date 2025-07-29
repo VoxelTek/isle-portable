@@ -4,8 +4,8 @@
 #include "mathutils.h"
 #include "meshutils.h"
 #include "miniwin.h"
-
 #include "sdl_compat.h"
+
 #include <algorithm>
 #include <cmath>
 #include <cstring>

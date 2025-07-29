@@ -2,11 +2,13 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_surface.h>
 #include "sdl_compat_stdinc.h"
 
+#include <SDL2/SDL_surface.h>
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #define SDL_BlitSurfaceScaled SDL_BlitScaled

@@ -6,8 +6,8 @@
 #include "ddraw_impl.h"
 #include "mathutils.h"
 #include "miniwin.h"
-
 #include "sdl_compat.h"
+
 #include <cassert>
 #include <float.h>
 #include <functional>

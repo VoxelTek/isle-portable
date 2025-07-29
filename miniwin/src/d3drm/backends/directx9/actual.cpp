@@ -1,8 +1,8 @@
 #include "actual.h"
 
+#include "sdl_compat.h"
 #include "structs.h"
 
-#include "sdl_compat.h"
 #include <d3d9.h>
 #include <vector>
 #include <windows.h>

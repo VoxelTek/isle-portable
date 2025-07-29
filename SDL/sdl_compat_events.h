@@ -2,14 +2,16 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_events.h>
+#include "sdl_compat_joystick.h"
+#include "sdl_compat_keyboard.h"
 #include "sdl_compat_stdinc.h"
 #include "sdl_compat_video.h"
-#include "sdl_compat_keyboard.h"
-#include "sdl_compat_joystick.h"
+
+#include <SDL2/SDL_events.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

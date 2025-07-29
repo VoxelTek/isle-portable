@@ -2,13 +2,15 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_audio.h>
-#include "sdl_compat_stdinc.h"
 #include "sdl_compat_mutex.h"
+#include "sdl_compat_stdinc.h"
 #include "sdl_compat_thread.h"
 
+#include <SDL2/SDL_audio.h>
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

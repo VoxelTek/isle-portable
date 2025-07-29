@@ -2,12 +2,14 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_haptic.h>
-#include "sdl_compat_stdinc.h"
 #include "sdl_compat_joystick.h"
+#include "sdl_compat_stdinc.h"
+
+#include <SDL2/SDL_haptic.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

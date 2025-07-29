@@ -4,8 +4,8 @@
 #include "ddsurface_impl.h"
 #include "mathutils.h"
 #include "meshutils.h"
-
 #include "sdl_compat.h"
+
 #include <algorithm>
 #include <cstring>
 #include <vector>

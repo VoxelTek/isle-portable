@@ -2,10 +2,10 @@
 
 #include "actual.h"
 
-#include "structs.h"
-
 #include "sdl_compat.h"
 #include "sdl_compat_opengl.h"
+#include "structs.h"
+
 #include <algorithm>
 #include <cstring>
 #include <vector>

@@ -2,9 +2,7 @@
 
 #ifdef ISLE_SDL2
 
-#include "sdl_compat_stdinc.h"
-
-#include <SDL2/SDL_filesystem.h>
+#include <SDL2/SDL_opengl.h>
 
 #ifdef __cplusplus
 extern "C"
@@ -16,5 +14,5 @@ extern "C"
 #endif
 
 #else
-#include <SDL3/SDL_filesystem.h>
+#include <SDL3/SDL_opengl.h>
 #endif

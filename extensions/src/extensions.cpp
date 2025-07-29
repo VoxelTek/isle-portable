@@ -1,7 +1,6 @@
 #include "extensions/extensions.h"
 
 #include "extensions/textureloader.h"
-
 #include "sdl_compat_log.h"
 
 void Extensions::Enable(const char* p_key, std::map<std::string, std::string> p_options)

@@ -5,10 +5,9 @@
 #include "sdl_compat.h"
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
-
-
 
 #ifdef __cplusplus
 }

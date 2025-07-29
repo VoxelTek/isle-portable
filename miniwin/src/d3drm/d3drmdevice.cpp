@@ -7,7 +7,6 @@
 #include "miniwin.h"
 #include "miniwin/d3drm.h"
 #include "miniwin/miniwindevice.h"
-
 #include "sdl_compat.h"
 
 Direct3DRMDevice2Impl::Direct3DRMDevice2Impl(DWORD width, DWORD height, Direct3DRMRenderer* renderer)

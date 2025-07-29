@@ -2,13 +2,15 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_keyboard.h>
-#include "sdl_compat_stdinc.h"
 #include "sdl_compat_keycode.h"
+#include "sdl_compat_stdinc.h"
 #include "sdl_compat_video.h"
 
+#include <SDL2/SDL_keyboard.h>
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

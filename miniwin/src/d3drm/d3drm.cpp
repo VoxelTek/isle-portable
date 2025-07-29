@@ -12,7 +12,6 @@
 #include "ddraw_impl.h"
 #include "ddsurface_impl.h"
 #include "miniwin.h"
-
 #include "sdl_compat.h"
 
 Direct3DRMPickedArrayImpl::Direct3DRMPickedArrayImpl(const PickRecord* inputPicks, size_t count)

@@ -5,7 +5,8 @@
 #include <SDL2/SDL.h>
 
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

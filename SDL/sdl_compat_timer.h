@@ -2,11 +2,13 @@
 
 #ifdef ISLE_SDL2
 
-#include <SDL2/SDL_timer.h>
 #include "sdl_compat_stdinc.h"
 
+#include <SDL2/SDL_timer.h>
+
 #ifdef __cplusplus
-extern "C" {
+extern "C"
+{
 #endif
 
 #ifdef __cplusplus

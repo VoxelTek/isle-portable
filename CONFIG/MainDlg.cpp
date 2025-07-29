@@ -9,11 +9,11 @@
 #include "AboutDlg.h"
 #include "config.h"
 #include "res/resource.h"
+#include "sdl_compat.h"
 
 #include <QKeyEvent>
 #include <QMessageBox>
 #include <QProcess>
-#include "sdl_compat.h"
 #include <cmath>
 #include <mxdirectx/legodxinfo.h>
 #include <ui_maindialog.h>

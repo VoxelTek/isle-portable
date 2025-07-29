@@ -1,8 +1,8 @@
 #pragma once
 
+#include "sdl_compat.h"
 #include "structs.h"
 
-#include "sdl_compat.h"
 #include <stdint.h>
 #include <vector>
 

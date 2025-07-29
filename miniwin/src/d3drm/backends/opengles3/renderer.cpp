@@ -1,9 +1,9 @@
 #include "d3drmrenderer_opengles3.h"
 #include "meshutils.h"
+#include "sdl_compat.h"
 
 #include <GLES2/gl2ext.h>
 #include <GLES3/gl3.h>
-#include "sdl_compat.h"
 #include <algorithm>
 #include <string>
 

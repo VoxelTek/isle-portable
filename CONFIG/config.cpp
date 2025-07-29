@@ -13,10 +13,11 @@
 #include <process.h> // _spawnl
 #endif
 
+#include "sdl_compat.h"
+
 #include <QApplication>
 #include <QCommandLineParser>
 #include <QMessageBox>
-#include "sdl_compat.h"
 #include <iniparser.h>
 
 DECOMP_SIZE_ASSERT(CWinApp, 0xc4)
