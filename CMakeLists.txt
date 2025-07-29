@@ -147,7 +147,7 @@ if (ISLE_UBSAN)
 endif()
 
 if (ISLE_USE_SDL2)
-  add_definitions("-DISLE_SDL2")
+  add_compile_definitions(ISLE_SDL2)
 endif()
 
 add_subdirectory(miniwin EXCLUDE_FROM_ALL)
