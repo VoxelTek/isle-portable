@@ -49,7 +49,7 @@ option(ISLE_DEBUG "Enable imgui debug" ON)
 cmake_dependent_option(ISLE_USE_DX5 "Build with internal DirectX 5 SDK" "${NOT_MINGW}" "WIN32;CMAKE_SIZEOF_VOID_P EQUAL 4" OFF)
 cmake_dependent_option(ISLE_MINIWIN "Use miniwin" ON "NOT ISLE_USE_DX5" OFF)
 cmake_dependent_option(ISLE_EXTENSIONS "Use extensions" ON "NOT ISLE_USE_DX5" OFF)
-cmake_dependent_option(ISLE_BUILD_CONFIG "Build CONFIG.EXE application" ON "MSVC OR ISLE_MINIWIN;NOT NINTENDO_3DS;NOT WINDOWS_STORE" OFF)
+cmake_dependent_option(ISLE_BUILD_CONFIG "Build CONFIG.EXE application" ON "MSVC OR ISLE_MINIWIN;NOT NINTENDO_3DS;NOT WINDOWS_STORE;NOT NINTENDO_SWITCH" OFF)
 cmake_dependent_option(ISLE_COMPILE_SHADERS "Compile shaders" ON "SDL_SHADERCROSS_BIN;TARGET Python3::Interpreter" OFF)
 option(CMAKE_POSITION_INDEPENDENT_CODE "Build with -fPIC" ON)
 option(ENABLE_CLANG_TIDY "Enable clang-tidy")
@@ -77,6 +77,13 @@ if (DOWNLOAD_DEPENDENCIES)
       SDL3
       GIT_REPOSITORY "https://github.com/Helloyunho/SDL3-uwp.git"
       GIT_TAG "main"
+      EXCLUDE_FROM_ALL
+    )
+  elseif (NINTENDO_SWITCH)
+    FetchContent_Declare(
+      SDL3
+      GIT_REPOSITORY "https://github.com/devkitPro/SDL.git"
+      GIT_TAG "switch-sdl-3.2"
       EXCLUDE_FROM_ALL
     )
   else()
