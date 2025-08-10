@@ -26,7 +26,12 @@ Direct3DRMRenderer* CreateDirect3DRMRenderer(
 {
 #ifdef USE_SDL_GPU
 	if (SDL_memcmp(guid, &SDL3_GPU_GUID, sizeof(GUID)) == 0) {
-		return Direct3DRMSDL3GPURenderer::Create(DDSDesc.dwWidth, DDSDesc.dwHeight);
+		return Direct3DRMSDL3GPURenderer::Create(
+			DDSDesc.dwWidth,
+			DDSDesc.dwHeight,
+			d3d->GetMSAASamples(),
+			d3d->GetAnisotropic()
+		);
 	}
 #endif
 #ifdef USE_SOFTWARE_RENDER
@@ -65,7 +70,7 @@ Direct3DRMRenderer* CreateDirect3DRMRenderer(
 void Direct3DRMRenderer_EnumDevices(const IDirect3DMiniwin* d3d, LPD3DENUMDEVICESCALLBACK cb, void* ctx)
 {
 #ifdef USE_SDL_GPU
-	Direct3DRMSDL3GPU_EnumDevice(cb, ctx);
+	Direct3DRMSDL3GPU_EnumDevice(d3d, cb, ctx);
 #endif
 #ifdef USE_OPENGLES3
 	OpenGLES3Renderer_EnumDevice(d3d, cb, ctx);

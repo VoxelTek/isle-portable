@@ -168,12 +168,16 @@ static SDL_GPUGraphicsPipeline* InitializeGraphicsPipeline(
 	rasterizerState.front_face = SDL_GPU_FRONTFACE_CLOCKWISE;
 	rasterizerState.enable_depth_clip = true;
 
+	SDL_GPUMultisampleState multisampleState = {};
+	multisampleState.sample_count = m_sampleCount;
+
 	SDL_GPUGraphicsPipelineCreateInfo pipelineCreateInfo = {};
 	pipelineCreateInfo.vertex_shader = vertexShader.ptr;
 	pipelineCreateInfo.fragment_shader = fragmentShader.ptr;
 	pipelineCreateInfo.vertex_input_state = vertexInputState;
 	pipelineCreateInfo.primitive_type = SDL_GPU_PRIMITIVETYPE_TRIANGLELIST;
 	pipelineCreateInfo.rasterizer_state = rasterizerState;
+	pipelineCreateInfo.multisample_state = multisampleState;
 	pipelineCreateInfo.depth_stencil_state.compare_op = SDL_GPU_COMPAREOP_GREATER;
 	pipelineCreateInfo.depth_stencil_state.write_mask = 0xff;
 	pipelineCreateInfo.depth_stencil_state.enable_depth_test = depthTest;
@@ -187,7 +191,7 @@ static SDL_GPUGraphicsPipeline* InitializeGraphicsPipeline(
 	return SDL_CreateGPUGraphicsPipeline(device, &pipelineCreateInfo);
 }
 
-Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height)
+Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height, DWORD msaaSamples, float anisotropic)
 {
 	ScopedDevice device{SDL_CreateGPUDevice(
 		SDL_GPU_SHADERFORMAT_SPIRV | SDL_GPU_SHADERFORMAT_DXBC | SDL_GPU_SHADERFORMAT_DXIL | SDL_GPU_SHADERFORMAT_MSL,
@@ -201,6 +205,23 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height)
 	if (!device.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "SDL_CreateGPUDevice failed (%s)", SDL_GetError());
 		return nullptr;
+	}
+
+	switch (msaaSamples) {
+	case 1:
+	default:
+		m_sampleCount = SDL_GPU_SAMPLECOUNT_1;
+		break;
+	case 2:
+		m_sampleCount = SDL_GPU_SAMPLECOUNT_2;
+		break;
+	case 4:
+		m_sampleCount = SDL_GPU_SAMPLECOUNT_4;
+		break;
+	case 8:
+	case 16:
+		m_sampleCount = SDL_GPU_SAMPLECOUNT_8;
+		break;
 	}
 
 	if (!DDWindow) {
@@ -249,6 +270,7 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height)
 	samplerInfo.address_mode_u = SDL_GPU_SAMPLERADDRESSMODE_REPEAT;
 	samplerInfo.address_mode_v = SDL_GPU_SAMPLERADDRESSMODE_REPEAT;
 	samplerInfo.address_mode_w = SDL_GPU_SAMPLERADDRESSMODE_REPEAT;
+	samplerInfo.max_anisotropy = anisotropic;
 	ScopedSampler sampler{device.ptr, SDL_CreateGPUSampler(device.ptr, &samplerInfo)};
 	if (!sampler.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "Failed to create sampler: %s", SDL_GetError());
@@ -296,6 +318,8 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height)
 Direct3DRMSDL3GPURenderer::Direct3DRMSDL3GPURenderer(
 	DWORD width,
 	DWORD height,
+	DWORD msaaSamples,
+	float anisotropic,
 	SDL_GPUDevice* device,
 	SDL_GPUGraphicsPipeline* opaquePipeline,
 	SDL_GPUGraphicsPipeline* transparentPipeline,

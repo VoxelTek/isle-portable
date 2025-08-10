@@ -44,7 +44,7 @@ struct SDL3MeshCache {
 
 class Direct3DRMSDL3GPURenderer : public Direct3DRMRenderer {
 public:
-	static Direct3DRMRenderer* Create(DWORD width, DWORD height);
+	static Direct3DRMRenderer* Create(DWORD width, DWORD height, DWORD msaaSamples, float anisotropic);
 	~Direct3DRMSDL3GPURenderer() override;
 	void PushLights(const SceneLight* vertices, size_t count) override;
 	Uint32 GetTextureId(IDirect3DRMTexture* texture, bool isUI, float scaleX, float scaleY) override;
@@ -73,6 +73,8 @@ private:
 	Direct3DRMSDL3GPURenderer(
 		DWORD width,
 		DWORD height,
+		DWORD msaaSamples,
+		float anisotropic,
 		SDL_GPUDevice* device,
 		SDL_GPUGraphicsPipeline* opaquePipeline,
 		SDL_GPUGraphicsPipeline* transparentPipeline,
@@ -90,6 +92,8 @@ private:
 	void AddMeshDestroyCallback(Uint32 id, IDirect3DRMMesh* mesh);
 	SDL3MeshCache UploadMesh(const MeshGroup& meshGroup);
 
+	uint32_t m_msaa;
+	float m_anisotropic;
 	MeshGroup m_uiMesh;
 	SDL3MeshCache m_uiMeshCache;
 	D3DVALUE m_front;
@@ -118,7 +122,7 @@ private:
 	SDL_GPUFence* m_uploadFence = nullptr;
 };
 
-inline static void Direct3DRMSDL3GPU_EnumDevice(LPD3DENUMDEVICESCALLBACK cb, void* ctx)
+inline static void Direct3DRMSDL3GPU_EnumDevice(const IDirect3DMiniwin* d3d, LPD3DENUMDEVICESCALLBACK cb, void* ctx)
 {
 #ifdef __APPLE__
 	SDL_GPUDevice* device = SDL_CreateGPUDevice(SDL_GPU_SHADERFORMAT_MSL, false, nullptr);
@@ -127,7 +131,7 @@ inline static void Direct3DRMSDL3GPU_EnumDevice(LPD3DENUMDEVICESCALLBACK cb, voi
 	}
 	SDL_DestroyGPUDevice(device);
 #else
-	Direct3DRMRenderer* device = Direct3DRMSDL3GPURenderer::Create(640, 480);
+	Direct3DRMRenderer* device = Direct3DRMSDL3GPURenderer::Create(640, 480, 1, 1);
 	if (!device) {
 		return;
 	}
