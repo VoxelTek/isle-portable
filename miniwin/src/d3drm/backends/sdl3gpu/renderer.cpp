@@ -96,7 +96,9 @@ static SDL_GPUGraphicsPipeline* InitializeGraphicsPipeline(
 	SDL_GPUDevice* device,
 	SDL_Window* window,
 	bool depthTest,
-	bool depthWrite
+	bool depthWrite,
+	uint32_t msaaSamples,
+	float anisotropic
 )
 {
 	const SDL_GPUShaderCreateInfo* vertexCreateInfo =
@@ -169,7 +171,27 @@ static SDL_GPUGraphicsPipeline* InitializeGraphicsPipeline(
 	rasterizerState.enable_depth_clip = true;
 
 	SDL_GPUMultisampleState multisampleState = {};
-	multisampleState.sample_count = m_sampleCount;
+	/*
+	switch (msaaSamples) {
+		case 1:
+		default:
+			multisampleState.sample_count = SDL_GPU_SAMPLECOUNT_1;
+			break;
+		case 2:
+			multisampleState.sample_count = SDL_GPU_SAMPLECOUNT_2;
+			break;
+		case 4:
+			multisampleState.sample_count = SDL_GPU_SAMPLECOUNT_4;
+			break;
+		case 8:
+		case 16:
+			multisampleState.sample_count = SDL_GPU_SAMPLECOUNT_8;
+			break;
+	}
+	*/
+	multisampleState.sample_mask = 0;
+	multisampleState.enable_mask = false;
+	multisampleState.enable_alpha_to_coverage = false;
 
 	SDL_GPUGraphicsPipelineCreateInfo pipelineCreateInfo = {};
 	pipelineCreateInfo.vertex_shader = vertexShader.ptr;
@@ -207,23 +229,6 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height,
 		return nullptr;
 	}
 
-	switch (msaaSamples) {
-	case 1:
-	default:
-		m_sampleCount = SDL_GPU_SAMPLECOUNT_1;
-		break;
-	case 2:
-		m_sampleCount = SDL_GPU_SAMPLECOUNT_2;
-		break;
-	case 4:
-		m_sampleCount = SDL_GPU_SAMPLECOUNT_4;
-		break;
-	case 8:
-	case 16:
-		m_sampleCount = SDL_GPU_SAMPLECOUNT_8;
-		break;
-	}
-
 	if (!DDWindow) {
 		SDL_Log("No window handler");
 		return nullptr;
@@ -234,19 +239,28 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height,
 		return nullptr;
 	}
 
-	ScopedPipeline opaquePipeline{device.ptr, InitializeGraphicsPipeline(device.ptr, DDWindow, true, true)};
+	ScopedPipeline opaquePipeline{
+		device.ptr,
+		InitializeGraphicsPipeline(device.ptr, DDWindow, true, true, msaaSamples, anisotropic)
+	};
 	if (!opaquePipeline.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "InitializeGraphicsPipeline for opaquePipeline");
 		return nullptr;
 	}
 
-	ScopedPipeline transparentPipeline{device.ptr, InitializeGraphicsPipeline(device.ptr, DDWindow, true, false)};
+	ScopedPipeline transparentPipeline{
+		device.ptr,
+		InitializeGraphicsPipeline(device.ptr, DDWindow, true, false, msaaSamples, anisotropic)
+	};
 	if (!transparentPipeline.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "InitializeGraphicsPipeline for transparentPipeline");
 		return nullptr;
 	}
 
-	ScopedPipeline uiPipeline{device.ptr, InitializeGraphicsPipeline(device.ptr, DDWindow, false, false)};
+	ScopedPipeline uiPipeline{
+		device.ptr,
+		InitializeGraphicsPipeline(device.ptr, DDWindow, false, false, msaaSamples, anisotropic)
+	};
 	if (!uiPipeline.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "InitializeGraphicsPipeline for uiPipeline");
 		return nullptr;
@@ -271,6 +285,7 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height,
 	samplerInfo.address_mode_v = SDL_GPU_SAMPLERADDRESSMODE_REPEAT;
 	samplerInfo.address_mode_w = SDL_GPU_SAMPLERADDRESSMODE_REPEAT;
 	samplerInfo.max_anisotropy = anisotropic;
+	samplerInfo.enable_anisotropy = (anisotropic > 1 ? true : false);
 	ScopedSampler sampler{device.ptr, SDL_CreateGPUSampler(device.ptr, &samplerInfo)};
 	if (!sampler.ptr) {
 		SDL_LogError(LOG_CATEGORY_MINIWIN, "Failed to create sampler: %s", SDL_GetError());
@@ -293,6 +308,8 @@ Direct3DRMRenderer* Direct3DRMSDL3GPURenderer::Create(DWORD width, DWORD height,
 	auto renderer = new Direct3DRMSDL3GPURenderer(
 		width,
 		height,
+		msaaSamples,
+		anisotropic,
 		device.ptr,
 		opaquePipeline.ptr,
 		transparentPipeline.ptr,
@@ -331,7 +348,7 @@ Direct3DRMSDL3GPURenderer::Direct3DRMSDL3GPURenderer(
 )
 	: m_device(device), m_opaquePipeline(opaquePipeline), m_transparentPipeline(transparentPipeline),
 	  m_uiPipeline(uiPipeline), m_sampler(sampler), m_uiSampler(uiSampler), m_uploadBuffer(uploadBuffer),
-	  m_uploadBufferSize(uploadBufferSize)
+	  m_uploadBufferSize(uploadBufferSize), m_msaa(msaaSamples), m_anisotropic(anisotropic)
 {
 	m_width = width;
 	m_height = height;
